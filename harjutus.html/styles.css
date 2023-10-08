@@ -1,0 +1,25 @@
+/* styles.css */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    border: 2px solid black;
+    padding: 20px;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.box {
+    background-color: #3498db;
+    padding: 20px;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    border-radius: 5px;
+    color: #ffff;
+}
+
+.box:nth-child(odd){ 
+    background-color: #e74c3c;
+    font-family: Monotype Corsiva, cursive;
+    text-align: center;
+}
