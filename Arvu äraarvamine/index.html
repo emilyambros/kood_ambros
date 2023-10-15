@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the number</title>
+</head>
+<body>
+    <h1> Guess the number</h1>
+
+    <script>
+        function generateRandomNumber(min, max) { 
+            return Math.floor(Math.random() * (max - min +1)) + min;
+        }
+
+        function playnumberguessinggame() {
+            const minNumber = 1;
+            const maxNumber = 100;
+
+            const targetNumber = generateRandomNumber(minNumber, maxNumber);
+
+            while (true) {
+                const userGuess = parseInt(prompt("Guess a number between 1 and 100"));
+                attempts++;
+
+                if (userGuess === targetNumber) {
+                    alert("You won! You picked the right number");
+                    } else if (userGuess < targetNumber) {
+                        alert("Your guess was too low! Try Again!");
+                    } else if (userGuess > targetNumber) {
+                        alert("Your guess was too high! Try again!");
+                }
+                
+                let uuesti = confirm("Kas soovid uuesti arvutada?");
+                if (uuesti) {
+                    break;
+                }
+
+            }
+            
+        }
+
+        playnumberguessinggame();
+
+    </script>
+</body>
+</html>
