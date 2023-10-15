@@ -18,6 +18,7 @@
             const maxNumber = 100;
 
             const targetNumber = generateRandomNumber(minNumber, maxNumber);
+            let attempts = 0;
 
             while (true) {
                 const userGuess = parseInt(prompt("Guess a number between 1 and 100"));
@@ -27,17 +28,13 @@
                     alert("You won! You picked the right number");
                     } else if (userGuess < targetNumber) {
                         alert("Your guess was too low! Try Again!");
-                    } else if (userGuess > targetNumber) {
+                    } else {
                         alert("Your guess was too high! Try again!");
                 }
-                
-                let uuesti = confirm("Kas soovid uuesti arvutada?");
-                if (uuesti) {
-                    break;
-                }
 
+               
             }
-            
+
         }
 
         playnumberguessinggame();
