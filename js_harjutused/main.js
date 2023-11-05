@@ -8,7 +8,7 @@ harjutus1();
 
 function harjutus2() {
     let mark = "Ford";
-    let mudel = "Mustang";
+    let mudel = "Mustang"; 
     let värv = "punane";
 
     console.log(`Minu auto on ${värv} ${mark} ${mudel}.`);
@@ -82,20 +82,20 @@ harjutus11(hinded);
 
 function harjutus12() {
     for(let i = 1; i <= 100; i++) {
-        let output = ``;
+        let tulemus = ""
+        if ((i % 3 === 0) && (i % 5 === 0)) {
+            console.log("Lütseum")
+        } 
+        if (i === 50) {
+            console.log("Tallinna Prantsuse Lütseum")
+        }
         if (i % 3 === 0) {
-            output += `Tallinna`;
+            console.log("Tallinna")
         }
         if (i % 5 === 0) {
-            output += `Prantsuse`;
+            console.log("Prantsuse")
         }
-        if (i % 3,5 === 0) {
-            output += `Lütseum`;
-        }
-        if (i === 50) {
-            output = `Tallinna Prantsuse Lütseum`
-        }
-        console.log(output)
+      
     }
 }
 harjutus12();
@@ -146,10 +146,10 @@ function harjutus14(inimesed) {
         if (!vanemInimene || inimene.vanus > vanemInimene.vanus) {
             vanemInimene = inimene;
         }
-        if (!pikemAadress || inimene.aadress.length > pikemAadress.aadress.length) {
+        if (!pikemAadress || inimene.aadress.pikkus > pikemAadress.aadress.pikkus) {
             pikemAadress = inimene;
         }
-        if (!lühemTelefoniNumber || inimene.telefon.length < lühemTelefoniNumber.telefon.length) {
+        if (!lühemTelefoniNumber || inimene.telefon.pikkus < lühemTelefoniNumber.telefon.pikkus) {
             lühemTelefoniNumber = inimene;
           }
       
