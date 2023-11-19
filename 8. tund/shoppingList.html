@@ -14,16 +14,17 @@
     </ul>
 
     <script>
-        document.getElementById('addItem').addEventListener('click', function() {
-            let newItem = document.getElementById('item').value;
-            if (newItem.trim() !== '') {
-                let shoppingList = document.getElementById('shoppig-list');
-                let listItem = document.createElement('li');
-                listItem.textContent = newItem;
-                shoppingList.appendChild(listItem);
-                document.getElementById('item').value = '';
-            }
-        });
+        const itemInput = document.getElementById("item");
+
+        const addItemButton = document.getElementById('addItem');
+
+        const shoppingList = document.getElementById("shopping-list");
+
+        addItemButton.addEventListener('click', function() {
+            const newItem = document.createElement('li');
+            newItem.textContent = itemInput.value;
+            shoppingList.appendChild(newItem);
+        })
     </script>
 </body>
-</html>
+</html> 
