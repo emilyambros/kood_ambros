@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registreerimisvorm</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="nimi" placeholder="Nimi"><br>
+        <input type="email" id="email" placeholder="E-mail"><br>
+        <input type="password" id="parool" placeholder="Parool"><br>
+        <input type="password" id="kinnitaParool" placeholder="Kinnita parool"><br>
+        <button type="button" onclick="validateNimi(), validateEmail(), validateParool(), validateKinnitaParool()">Submit</button>
+    </form>
+
+    <script>
+        function validateNimi() {
+            const nimi = document.getElementById('nimi').value;
+            const minLength = 5;
+
+            if (nimi.length < minLength) {
+                alert('Nimi peab olema vähemalt 5 tähemärki');
+            } else {
+                console.log('Password meets length requirement');
+            }
+        }
+
+        function validateEmail() {
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+             if (!email.match(emailPattern)) {
+                 alert('Please enter a valid email address');
+             } else {
+                console.log('Valid email address');
+             }
+        }
+
+        function validateParool() {
+            const parool = document.getElementById('parool').value;
+            const minLength = 8;
+
+             if (parool.length < minLength) {
+                alert('Password should be at least 8 characters long');
+            } else {
+                console.log('Password meets length requirement');
+            }
+        }
+
+        function validateKinnitaParool() {
+            const kinnitaParool = document.getElementById('kinnitaParool').value;
+            const parool = document.getElementById('parool').value;
+
+            if (kinnitaParool != parool) {
+                alert('Sisestatud parool ei ühti');
+            } else {
+                console.log('Parool on õige');
+            }
+        }
+    </script>
+</body>
+</html>
