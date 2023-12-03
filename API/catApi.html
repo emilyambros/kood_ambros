@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang en>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kassi API</title>
+
+    <style>
+        body {
+          font-family: baskerville, sans-serif;
+          background-color: #92cae8;
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          margin: 0;
+        }
+
+        #newCatButton {
+            display: inline-block;
+            font-family: baskerville;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid #00548b;
+            color: #0065a8;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            color: #00548b;
+            text-align: center;
+        }
+
+    
+        #catImage {
+          max-width: 100%;
+          border-radius: 8px;
+        }
+      </style>
+</head>
+<body>
+    <h1>Kassi API</h1>
+
+    <img id="catImage" src="" alt="randomCat">
+
+    <button id="newCatButton" onclick="getRandomCat()">Genereeri uus kass</button>
+    <div id="catImageContainer"></div>
+
+    <script>
+        newCatButton.addEventListener('click', getCatImage);
+
+        function getCatImage() {
+
+            fetch('https://api.thecatapi.com/v1/images/search')
+            .then(response => response.json())
+            .then(data => {
+            document.getElementById('catImage').src = data[0].url;
+            })
+    
+        .catch(error => console.error('Error fetching cat image:', error));
+        }
+        getCatImage()
+
+    </script>
+</body>
+</html>
