@@ -1,0 +1,19 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  p {
+    color: #666;
+  }
+  
+  a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #3498db;
+  }
+  
