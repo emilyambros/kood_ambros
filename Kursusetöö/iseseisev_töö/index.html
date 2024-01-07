@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Home</title>
+</head>
+<body>
+  <header>
+    <h1>Orbit Culture</h1>
+    <nav class="navigation">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/profile">Profile</a>   
+          <button class="btnLogin-popup">Login</button>
+    </nav>
+ 
+</header>
+
+<h3>News</h3>
+<button id="getNewsBtn">Get News</button>
+<p id="newsList"></p>
+
+
+<div class="wrapper">
+    <span class="icon-close"><i class='bx bx-x-circle'></i></span>
+  <div class="form-box login">
+    <h2>Login</h2>
+    <form action="#">
+      <div class="input-box">
+        <span class="icon"></span>
+        <input type="email" required>
+        <label>Email</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"></span>
+        <input type="password" required>
+        <label>Password</label>
+      </div>
+      <div class="remember-forgot">
+          <label><input type="checkbox">
+          Remember me</label>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="login-register">
+        <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+      </div>
+    </form>
+  </div>
+
+  <div class="form-box register">
+    <h2>Registration</h2>
+    <form action="#">
+      <div class="input-box">
+        <span class="icon"></span>
+        <input type="text" required>
+        <label>First Name</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"></span>
+        <input type="text" required>
+        <label>Last Name</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"></span>
+        <input type="email" required>
+        <label>Email</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"></span>
+        <input type="password" required>
+        <label>Password</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"></span>
+        <input type="number" required>
+        <label>Age</label>
+      </div>
+      <div class="remember-forgot">
+          <label><input type="checkbox"> I agree to the terms and conditions</label>
+      </div>
+      <button type="submit" class="btn">Register</button>
+      <div class="login-register">
+        <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+    <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            const getNewsBtn = document.getElementById('getNewsBtn');
+            const newsList = document.getElementById('newsList');
+
+            getNewsBtn.addEventListener('click', () => {
+
+                const apiKey = 'cccb37d1ea3040248ea64d0ad73c98bb';
+                const newsApiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+
+
+                fetch(newsApiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+
+                        newsList.innerHTML = ''; 
+
+                        data.articles.forEach(article => {
+                            const listItem = document.createElement('li');
+                            listItem.innerHTML = `<strong>${article.title}</strong><br>${article.description}`;
+                            newsList.appendChild(listItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching news:', error);
+                    });
+            });
+        });
+
+      const wrapper = document.querySelector('.wrapper');
+      const loginLink = document.querySelector('.login-link');
+      const registerLink = document.querySelector('.register-link');
+      const btnPopup = document.querySelector('.btnLogin-popup');
+      const iconClose = document.querySelector('.icon-close');
+
+      registerLink.addEventListener('click', ()=> {
+        wrapper.classList.add('active');
+      });
+
+      loginLink.addEventListener('click', ()=> {
+        wrapper.classList.remove('active');
+      });
+
+      btnPopup.addEventListener('click', ()=> {
+        wrapper.classList.add('active-popup');
+      })
+
+      iconClose.addEventListener('click', ()=> {
+        wrapper.classList.remove('active-popup');
+      })
+
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch
+      })
+
+    </script>
+
+
+</body>
+</html>
